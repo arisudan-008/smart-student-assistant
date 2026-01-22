@@ -6,7 +6,13 @@ import speech_recognition as sr
 import win32com.client
 import requests
 import json
-import datetime
+import datetime                
+import os
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host="0.0.0.0", port=port)
+
 
 # ================= TESSERACT PATH =================
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
@@ -212,4 +218,5 @@ while True:
         continue
 
     answer = ask_phi(command)
+
     speak(answer)
